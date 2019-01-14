@@ -1,0 +1,17 @@
+.shop {
+
+  &__title {
+    font-size: 22px;
+    padding: 7px 0;
+  }
+
+  &__md {
+    padding: 0 160px;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}

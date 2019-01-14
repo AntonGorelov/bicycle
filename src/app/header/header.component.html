@@ -1,0 +1,18 @@
+<div class="header">
+  <img src="assets/pictures/logo.jpg" alt="" class="header__logo">
+  <div class="header__md">
+    <ul class="header__nav-list">
+      <li class="header__nav__item">
+        <button class="header__nav__link" [routerLink]="['/shop']">Shop</button>
+      </li>
+      <li class="header__nav__item">
+        <button class="header__nav__link" [routerLink]="['/login']">Login</button>
+      </li>
+      <ng-container *ngIf="loggedIn">
+        <li class="header__nav__item">
+          <button class="header__nav__link" (click)="logout()">Logout</button>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+</div>

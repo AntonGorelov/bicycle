@@ -1,0 +1,66 @@
+<div class="input__wrapper">
+  <input class="input"
+         [ngModel]="value"
+         [ngClass]="{'input--wide-border': focus}"
+         (ngModelChange)="writeValue($event)"
+         (blur)="onBlur()"
+         (focus)="onFocus()"
+         [attr.type]="type"
+         [attr.title]="title">
+  <div class="input__placeholder-wrapper"
+       [ngClass]="{'input__placeholder-wrapper--minimized': minimized}">
+    <span class="input__placeholder"
+          [ngClass]="{'input__placeholder--minimized': minimized}"
+          *ngIf="showPlaceholder">
+      {{ placeholder }}
+      <span class="input__required-asterisk"
+            *ngIf="required">*</span>
+    </span>
+  </div>
+  <div class="input__underline-wrapper">
+    <div class="input__underline" [ngClass]="{'input__underline--visible': focus}"></div>
+  </div>
+  <div class="input__error-wrapper" *ngIf="errorMsg.length || (control && !control.valid && control.touched)">
+    <div class="input__error" *ngIf="!control; else controlErrors">
+      {{ errorMsg }}
+    </div>
+    <ng-template #controlErrors>
+      <div class="input__error" *ngIf="controlError && (control.touched || control.dirty)">
+        <ng-container [ngSwitch]="controlError.key">
+
+          <ng-template [ngSwitchCase]="'required'">Please enter a value</ng-template>
+
+          <ng-template [ngSwitchCase]="'minlength'">
+            Value must be minimum {{ controlError.value.requiredLength }} symbols
+          </ng-template>
+
+          <ng-template [ngSwitchCase]="'maxlength'">
+            Value must be maximum {{ controlError.value.requiredLength }} symbols
+          </ng-template>
+
+          <ng-template [ngSwitchCase]="'requiredTrue'">
+            Value must be checked
+          </ng-template>
+
+          <ng-template [ngSwitchCase]="'min'">
+            Value can not be less than {{ controlError.value.min }}
+          </ng-template>
+
+          <ng-template [ngSwitchCase]="'max'">
+            Value can not be greater than {{ controlError.value.max }}
+          </ng-template>
+
+          <ng-template [ngSwitchCase]="'email'">
+            Value must be email
+          </ng-template>
+
+          <ng-template ngFor let-error [ngForOf]="customErrors | keyvalue">
+            <ng-template [ngSwitchCase]="error.key">
+              <ng-template [ngTemplateOutlet]="error.value"></ng-template>
+            </ng-template>
+          </ng-template>
+        </ng-container>
+      </div>
+    </ng-template>
+  </div>
+</div>

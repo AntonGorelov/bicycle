@@ -1,0 +1,15 @@
+<div class="shop">
+  <div class="shop__md">
+    <h3 class="shop__title" [@changeColorTrigger]="animationState" (click)="changeState()">Products</h3>
+
+    <div class="shop__list">
+      <ng-container *ngFor="let product of products">
+        <app-product
+            [product]="product"
+            [@fadeOutTrigger]
+            ></app-product>
+      </ng-container>
+    </div>
+
+  </div>
+</div>

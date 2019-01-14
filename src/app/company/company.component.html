@@ -1,0 +1,14 @@
+<div class="company company__md">
+
+  <h2 class="company__title">All companies</h2>
+
+  <div *ngFor="let company of companies">
+    <div class="company__card">
+      {{company.name}}
+      <p>
+        {{company.about}}
+      </p>
+    </div>
+  </div>
+
+</div>

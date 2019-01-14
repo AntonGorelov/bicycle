@@ -1,0 +1,49 @@
+<div class="login login__md">
+
+  <div class="login__header">
+    <h3 class="login__header-text">
+      Sign In
+    </h3>
+  </div>
+
+  <form [formGroup]="signInForm" (ngSubmit)="signIn()" class="login__body">
+    <div class="login__input-group">
+      <div class="login__input">
+        <app-input [formControlName]="'email'"
+                   [placeholder]="inputTypes.email"
+                   [type]="inputTypes.email"
+                   [title]="inputTypes.email"
+                   [required]="true"
+                   [errorMsg]="emailErrorMsg"
+                   [ngClass]="{'ng-invalid && ng-touched': userNotFoundError}"></app-input>
+      </div>
+      <div class="login__input">
+        <app-input [formControlName]="'password'"
+                   [placeholder]="inputTypes.password"
+                   [type]="inputTypes.password"
+                   [title]="inputTypes.password"
+                   [required]="true"
+                   [errorMsg]="passErrorMsg"
+                   [ngClass]="{'ng-invalid && ng-touched': userNotFoundError}"></app-input>
+      </div>
+    </div>
+
+    <div class="login__extra-actions">
+      <div class="login__action">
+        <app-checkbox [formControlName]="'rememberMe'" [label]="'Remember me'"></app-checkbox>
+      </div>
+      <div class="login__action">
+        <a class="login__action-text" [routerLink]="['forgot_password']">Forgot Password</a>
+      </div>
+    </div>
+
+    <div class="login__primal-actions">
+      <button class="btn btn__outline"
+              [ngClass]="{'m-disabled': signInForm.invalid}"
+              type="submit">
+        Sign In
+      </button>
+    </div>
+  </form>
+
+</div>

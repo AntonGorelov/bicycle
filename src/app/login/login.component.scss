@@ -1,0 +1,70 @@
+@import "~src/assets/styles/variables";
+
+.login {
+  max-width: 700px;
+  margin: auto;
+
+  &__header {
+    margin-top: 45px;
+    text-align: center;
+  }
+
+  &__header-text {
+    margin: 0;
+    color: $purpleish-blue;
+    font-family: 'Nunito', sans-serif;
+    font-size: 21px;
+  }
+
+  &__md {
+    padding: 0 80px;
+  }
+
+  &__input {
+    margin: 29px 0;
+  }
+
+  &__action {
+    margin: 29px 0;
+  }
+
+  &__primal-actions {
+    display: flex;
+    align-items: center;
+
+    button{
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 13px;
+      background-color: $purpleish-blue;
+      color: white;
+      overflow: hidden;
+      position: relative;
+      display: block;
+      padding: 15px 22px;
+      border: none;
+      text-transform: uppercase;
+      cursor: pointer;
+
+      flex: 1 1 auto;
+      margin: 10px;
+      text-align: center;
+      transition: 0.5s;
+      background-size: 200% auto;
+      box-shadow: 0 0 20px #eee;
+    }
+
+    button:hover {
+      background-position: right center; /* change the direction of the change here */
+    }
+
+    .btn {
+
+      &.m-disabled {
+        cursor: not-allowed;
+      }
+    }
+
+  }
+
+}

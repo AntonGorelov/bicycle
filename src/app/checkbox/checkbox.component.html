@@ -1,0 +1,19 @@
+<label class="checkbox__wrapper" [ngClass]="{'m-active': value}">
+  <span class="checkbox__label" [ngClass]="{
+  'checkbox__label_error':
+    formControl?.invalid &&
+    (
+      formControl?.errors?.arrayEqualTo &&
+      (
+        (formControl?.errors?.arrayEqualTo?.correctValue && !value) ||
+        (!formControl?.errors?.arrayEqualTo?.correctValue && value)
+      )
+    ) || (formControl?.invalid && formControl?.touched)
+  }"
+  >
+    <ng-template [ngIf]="label" [ngIfElse]="content">{{ label }}</ng-template>
+    <ng-content #content></ng-content>
+  </span>
+  <input type="checkbox" class="checkbox" (click)="changeValue()" [value]="value">
+  <span class="checkbox__check-mark"></span>
+</label>

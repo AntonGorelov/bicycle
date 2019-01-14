@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "nina@mmcs.sfedu.com",
+      "access_token": "adcsdcasdc",
+      "password": "aaaaaaaa"
+    },
+    {
+      "email": "nina@mmcs.sfedu.com",
+      "password": "aaaaaaaa",
+      "id": 2
+    },
+    {
+      "email": "asdcsdcasd@asdcsd.com",
+      "password": "dcsdcasdc",
+      "id": 3
+    }
+  ],
+  "companies": [
+    {
+      "name": "Bike Company",
+      "about": "Our company is amazing. Text all sdccsdcasc",
+      "products": [
+        {
+          "name": "Domane SLR 9 Disc eTap",
+          "description": "Domane SLR 9 Disc eTap pairs our best endurance road bike"
+        }
+      ]
+    }
+  ]
+}
