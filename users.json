@@ -2,19 +2,10 @@
   "users": [
     {
       "id": 1,
-      "email": "nina@mmcs.sfedu.com",
-      "access_token": "adcsdcasdc",
-      "password": "aaaaaaaa"
-    },
-    {
-      "email": "nina@mmcs.sfedu.com",
-      "password": "aaaaaaaa",
-      "id": 2
-    },
-    {
-      "email": "asdcsdcasd@asdcsd.com",
-      "password": "dcsdcasdc",
-      "id": 3
+      "email": "admin@admin.com",
+      "password": "admin@admin.com",
+      "fName": "Test",
+      "lName": "User"
     }
   ],
   "companies": [

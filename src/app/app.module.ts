@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { JwtModule } from '@auth0/angular-jwt';
@@ -21,6 +21,10 @@ import { CheckboxComponent } from './checkbox/checkbox.component';
 
 // Services
 import { AuthGuardService } from './guards/auth-guard.service';
+
+import { FakeBackendInterceptor } from './helpers/backend';
+import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { ErrorInterceptor } from './helpers/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -44,14 +48,19 @@ import { AuthGuardService } from './guards/auth-guard.service';
     HttpClientModule,
     JwtModule.forRoot({
       config: {
-        tokenGetter: function  tokenGetter() {
-          return     localStorage.getItem('access_token');
+        tokenGetter: () => {
+          return localStorage.getItem('token');
         },
-        whitelistedDomains: ['localhost:3000']
+        whitelistedDomains: []
       }
     })
   ],
-  providers: [AuthGuardService],
+  providers: [
+    AuthGuardService,
+    FakeBackendInterceptor,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
