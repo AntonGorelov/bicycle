@@ -16,6 +16,11 @@
     font-size: 21px;
   }
 
+  &__extra-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+
   &__md {
     padding: 0 80px;
   }

@@ -1,3 +1,5 @@
+@import "~src/assets/styles/variables";
+
 .checkbox__check-mark {
   position: absolute;
   display: block;
@@ -6,7 +8,7 @@
   left: 0;
   height: 13px;
   border-radius: 1px;
-  border: solid 2px black;
+  border: solid 2px $purpleish-blue;
 
   &::after {
     position: absolute;
@@ -16,7 +18,7 @@
     height: 13px;
     left: -2px;
     top: -2px;
-    background: black;
+    background: $purpleish-blue;
   }
 }
 
@@ -39,7 +41,8 @@
   position: relative;
   user-select: none;
   display: block;
-  padding-left: 18px;
+  padding-left: 21px;
+  padding-top: 3px;
   cursor: pointer;
 
   &.m-active {

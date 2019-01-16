@@ -2,19 +2,10 @@
   "users": [
     {
       "id": 1,
-      "email": "nina@mmcs.sfedu.com",
-      "access_token": "adcsdcasdc",
-      "password": "aaaaaaaa"
-    },
-    {
-      "email": "nina@mmcs.sfedu.com",
-      "password": "aaaaaaaa",
-      "id": 2
-    },
-    {
-      "email": "asdcsdcasd@asdcsd.com",
-      "password": "dcsdcasdc",
-      "id": 3
+      "email": "admin@admin.com",
+      "password": "admin@admin.com",
+      "fName": "Test",
+      "lName": "User"
     }
   ],
   "companies": [
@@ -27,6 +18,32 @@
           "description": "Domane SLR 9 Disc eTap pairs our best endurance road bike"
         }
       ]
+    }
+  ],
+  "bicycles": [
+    {
+      "name": "Domane SLR 9 Disc eTap",
+      "description": "Domane SLR 9 Disc eTap pairs our best endurance road bike frame with SRAM's flagship wireless electronic drivetrain."
+    },
+    {
+      "name": "Top Fuel 9.9 SL",
+      "description": "Top Fuel 9.9 SL is our fastest full suspension XC mountain bike."
+    },
+    {
+      "name": "Madone SLR 8 Disc",
+      "description": "With Madone SLR 8 Disc, you're getting the best in light weight, aerodynamics, and road-smoothing IsoSpeed tech, with carbon wheels and a top-shelf Shimano Dura-Ace mechanical drivetrain."
+    },
+    {
+      "name": "Fuel EX 9.9",
+      "description": "Fuel EX 9.9 is our best 130mm trail bike. A carbon frame, carbon wheels, a 1x12 SRAM X01 Eagle drivetrain"
+    },
+    {
+      "name": "Slash 9.9",
+      "description": "Slash 9.9 is the fastest enduro mountain bike in the lineup, so it's no surprise it's the go-to ride for the pros of Trek Factory Racing Enduro."
+    },
+    {
+      "name": "Remedy 9.9",
+      "description": "Remedy 9.9 is the top-end trail bike in the family. A full OCLV Mountain Carbon frame, FOX Factory fork"
     }
   ]
 }

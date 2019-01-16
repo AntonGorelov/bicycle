@@ -7,7 +7,7 @@ import { JwtService } from '../jwt.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuardService {
+export class AuthGuardService implements CanActivate {
 
   constructor(
     private _jwtService: JwtService,
@@ -18,7 +18,7 @@ export class AuthGuardService {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
-    if (this._jwtService.loggedIn) {
+    if (localStorage.getItem('currentUser')) {
       return true;
     }
 

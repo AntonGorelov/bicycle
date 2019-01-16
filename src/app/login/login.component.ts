@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import { Router } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 import { InputTypes, InputErrorMessages } from '../input/input.model';
 import { JwtService } from '../jwt.service';
@@ -43,7 +43,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private _jwtService: JwtService,
-    private _route: Router,
+    private _router: Router,
+    private _route: ActivatedRoute,
     ) {}
 
   public ngOnInit() {
@@ -60,9 +61,13 @@ export class LoginComponent implements OnInit {
     }
 
     const { email, password } = this.signInForm.value;
-    this._jwtService.login(email, password).subscribe( () => {
-      this._route.navigate(['/shop']);
-    });
+    this._jwtService.login(email, password).subscribe(
+      () => {
+      this._router.navigate(['/shop']);
+    },
+      (error) => {
+      console.log(error);
+      });
 
   }
 }
