@@ -14,6 +14,7 @@ import { ShopComponent } from './shop/shop.component';
 import { LoginComponent } from './login/login.component';
 import { ProductComponent } from './product/product.component';
 import { CompanyComponent } from './company/company.component';
+import { RestorePasswordComponent } from './restore-password/restore-password.component';
 
 // Shared components
 import { InputComponent } from './input/input.component';
@@ -21,6 +22,7 @@ import { CheckboxComponent } from './checkbox/checkbox.component';
 
 // Services
 import { AuthGuardService } from './guards/auth-guard.service';
+import { StoreService } from './services/store.service';
 
 // Interceptors
 import { FakeBackendInterceptor } from './helpers/backend';
@@ -35,6 +37,7 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
     LoginComponent,
     ProductComponent,
     CompanyComponent,
+    RestorePasswordComponent,
 
     InputComponent,
     CheckboxComponent,
@@ -58,6 +61,7 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
   ],
   providers: [
     AuthGuardService,
+    StoreService,
     FakeBackendInterceptor,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

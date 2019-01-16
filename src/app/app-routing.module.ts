@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ShopComponent } from './shop/shop.component';
 import { LoginComponent } from './login/login.component';
 import { CompanyComponent } from './company/company.component';
-
+import { RestorePasswordComponent } from './restore-password/restore-password.component';
 
 import { AuthGuardService } from './guards/auth-guard.service';
 
@@ -26,6 +26,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+  },
+  {
+    path: 'login/forgot_password',
+    component: RestorePasswordComponent,
   }
 ];
 
