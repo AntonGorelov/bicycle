@@ -25,7 +25,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     return of(null).pipe(mergeMap(() => {
 
       // authenticate - public
-      if (request.url.endsWith('http://localhost:4201/users') && request.method === 'POST') {
+      if (request.url.endsWith('/api/users') && request.method === 'POST') {
         const user = users.find(
           x => x.email === request.body.email &&
             x.password === request.body.password
@@ -45,10 +45,10 @@ export class FakeBackendInterceptor implements HttpInterceptor {
       }
 
       // get all users
-      // if (request.url.endsWith('/users') && request.method === 'GET') {
-      //   if (!isLoggedIn) { return unauthorised(); }
-      //   return ok(users);
-      // }
+      if (request.url.endsWith('/users') && request.method === 'GET') {
+        if (!isLoggedIn) { return unauthorised(); }
+        return ok(users);
+      }
 
       // pass through any requests not handled above
       return next.handle(request);

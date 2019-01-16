@@ -22,6 +22,7 @@ import { CheckboxComponent } from './checkbox/checkbox.component';
 // Services
 import { AuthGuardService } from './guards/auth-guard.service';
 
+// Interceptors
 import { FakeBackendInterceptor } from './helpers/backend';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
@@ -49,7 +50,7 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
     JwtModule.forRoot({
       config: {
         tokenGetter: () => {
-          return localStorage.getItem('token');
+          return localStorage.getItem('currentUser');
         },
         whitelistedDomains: []
       }

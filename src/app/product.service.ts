@@ -12,6 +12,6 @@ export class ProductService {
   constructor(private _httpClient: HttpClient) { }
 
   public getAllProducts(): Observable<IProduct[]> {
-    return this._httpClient.get<IProduct[]>('http://localhost:3001/bicycles');
+    return this._httpClient.get<IProduct[]>('/api/bicycles');
   }
 }

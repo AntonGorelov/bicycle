@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import {map, tap} from 'rxjs/operators';
-import {BehaviorSubject, Observable} from 'rxjs';
+import { map } from 'rxjs/operators';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 import { IUser } from '../lib/models/user.interface';
 
@@ -28,9 +28,9 @@ export class JwtService {
   }
 
   public login(email: string, password: string) {
-    return this._httpClient.post<any>(`http://localhost:3000/users`, { email, password })
+    return this._httpClient.post<any>(`/api/users`, { email, password })
       .pipe(map(user => {
-        if (user && user.token) {
+        if (user) {
           localStorage.setItem('currentUser', JSON.stringify(user));
           this._currentUserSubject.next(user);
         }
