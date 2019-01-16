@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {ActivatedRoute, Router} from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { InputTypes, InputErrorMessages } from '../input/input.model';
 import { JwtService } from '../jwt.service';
@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
 
     return msg;
   }
+
   public get passErrorMsg() {
     let msg = '';
     if (this.signInForm.hasError('minlength', ['password'])) {
