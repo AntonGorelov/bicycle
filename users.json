@@ -6,6 +6,16 @@
       "password": "admin@admin.com",
       "fName": "Test",
       "lName": "User"
+    },
+    {
+      "email": "admin@jjjjj.com",
+      "password": "dzdzfddffz",
+      "id": 2
+    },
+    {
+      "email": "admin@admin.com",
+      "password": "sdcasdcasdcas",
+      "id": 3
     }
   ],
   "companies": [
@@ -44,6 +54,31 @@
     {
       "name": "Remedy 9.9",
       "description": "Remedy 9.9 is the top-end trail bike in the family. A full OCLV Mountain Carbon frame, FOX Factory fork"
+    }
+  ],
+  "news": [
+    {
+      "title": "We are open news!",
+      "description": "This post is a step-by-step guide for both designing and implementing JWT-based Authentication in an Angular Application.",
+      "isMain": true
+    },
+    {
+      "photo": "/assets/pictures/news1.jpg",
+      "title": "Title 1",
+      "description": "text 1",
+      "isMain": false
+    },
+    {
+      "photo": "/assets/pictures/news2.jpeg",
+      "title": "Title 2",
+      "description": "text 2",
+      "isMain": false
+    },
+    {
+      "photo": "/assets/pictures/news3.jpeg",
+      "title": "Title 3",
+      "description": "text 3",
+      "isMain": false
     }
   ]
 }

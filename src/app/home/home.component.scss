@@ -1,0 +1,23 @@
+.home {
+
+  &__md {
+    padding: 0 160px;
+  }
+
+  &__main {
+    display: flex;
+  }
+
+  &__part {
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+
+  &__other-news {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.main-about {
+  margin: 200px 13px;
+}

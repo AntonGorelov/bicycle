@@ -5,7 +5,7 @@
       <li class="header__nav__item">
         <button class="header__nav__link" [routerLink]="['/shop']">Shop</button>
       </li>
-      <li class="header__nav__item">
+      <li class="header__nav__item" *ngIf="!loggedIn">
         <button class="header__nav__link" [routerLink]="['/login']">Login</button>
       </li>
       <ng-container *ngIf="loggedIn">
