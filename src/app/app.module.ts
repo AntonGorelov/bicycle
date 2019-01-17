@@ -15,6 +15,8 @@ import { LoginComponent } from './login/login.component';
 import { ProductComponent } from './product/product.component';
 import { CompanyComponent } from './company/company.component';
 import { RestorePasswordComponent } from './restore-password/restore-password.component';
+import { HomeComponent } from './home/home.component';
+import { NewsCardComponent } from './news-card/news-card.component';
 
 // Shared components
 import { InputComponent } from './input/input.component';
@@ -38,6 +40,8 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
     ProductComponent,
     CompanyComponent,
     RestorePasswordComponent,
+    HomeComponent,
+    NewsCardComponent,
 
     InputComponent,
     CheckboxComponent,

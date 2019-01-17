@@ -7,11 +7,12 @@ import { CompanyComponent } from './company/company.component';
 import { RestorePasswordComponent } from './restore-password/restore-password.component';
 
 import { AuthGuardService } from './guards/auth-guard.service';
+import {HomeComponent} from './home/home.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/login',
+    redirectTo: '/home',
     pathMatch: 'full',
   },
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path: 'login/forgot_password',
     component: RestorePasswordComponent,
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
   }
 ];
 
