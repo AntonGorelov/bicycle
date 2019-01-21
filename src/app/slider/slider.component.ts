@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { animate, group, query, style, transition, trigger } from '@angular/animations';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-slider',
@@ -36,20 +37,33 @@ import { animate, group, query, style, transition, trigger } from '@angular/anim
     ])
   ]
 })
-export class SliderComponent implements OnInit {
+export class SliderComponent implements OnInit, OnDestroy {
   @Input()
   public content;
 
   public selectedIndex: number;
+  private _destroy$;
 
   constructor() {}
 
   public ngOnInit() {
     this.initSlider();
+    this.autoSelect();
+  }
+
+  public ngOnDestroy() {
+    this._destroy$.unsubscribe();
   }
 
   public initSlider() {
     this.selectedIndex = 0;
+  }
+
+  public autoSelect() {
+    this._destroy$ = timer(1000, 3000);
+    this._destroy$.subscribe(() => {
+      this.nextSlide();
+    });
   }
 
   public setCurrentSlideIndex(index) {

@@ -20,7 +20,7 @@
         <li class="dot" *ngFor="let slide of content; let i = index;">
           <span [ngClass]="{ 'active':isCurrentSlideIndex(i) }"
                 (click)="setCurrentSlideIndex(i);">
-                {{ slide.text }}</span>
+          </span>
         </li>
       </ul>
     </div>

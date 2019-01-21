@@ -13,16 +13,19 @@ export class HomeComponent implements OnInit, OnDestroy {
   public news: INews[];
   public content = [];
 
-  public $destroy: SubscriptionLike;
-  public $destroySlider: SubscriptionLike;
+  private _destroy$: SubscriptionLike;
+  private _destroySlider$: SubscriptionLike;
 
-  constructor(private _homeService: HomeService, private _sliderService: SliderService) {}
+  constructor(
+    private _homeService: HomeService,
+    private _sliderService: SliderService
+  ) {}
 
   public ngOnInit() {
-    this.$destroy = this._homeService.getAllNews().subscribe((news) => {
+    this._destroy$ = this._homeService.getAllNews().subscribe((news) => {
       this.news = news;
     });
-    this.$destroySlider = this._sliderService.getSliderContent().subscribe(
+    this._destroySlider$ = this._sliderService.getSliderContent().subscribe(
       (content) => {
         this.content = content;
       }
@@ -30,7 +33,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy() {
-    this.$destroy.unsubscribe();
-    this.$destroySlider.unsubscribe();
+    this._destroy$.unsubscribe();
+    this._destroySlider$.unsubscribe();
   }
 }

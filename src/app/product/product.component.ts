@@ -14,7 +14,7 @@ import { ID } from '../../lib/models/entity.interface';
 export class ProductComponent implements OnInit, OnDestroy {
   public product: IProduct;
 
-  public $destroy: SubscriptionLike;
+  public _destroy$: SubscriptionLike;
 
   constructor(
     private _productService: ProductService,
@@ -26,11 +26,11 @@ export class ProductComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy() {
-    this.$destroy.unsubscribe();
+    this._destroy$.unsubscribe();
   }
 
   public showProduct(id: ID) {
-    this.$destroy = this._productService.show(id).subscribe(
+    this._destroy$ = this._productService.show(id).subscribe(
       (product) => {
         this.product = product;
       }

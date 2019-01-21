@@ -11,12 +11,12 @@ import { CompaniesService } from './companies.service';
 export class CompaniesComponent implements OnInit, OnDestroy {
   public companies: ICompany[];
 
-  public destroy$: SubscriptionLike;
+  private _destroy$: SubscriptionLike;
 
   constructor(private _companyService: CompaniesService) {}
 
   public ngOnInit() {
-    this.destroy$ = this._companyService.getAllCompanies().subscribe(
+    this._destroy$ = this._companyService.getAllCompanies().subscribe(
       (companies) => {
         this.companies = companies;
       }
@@ -24,6 +24,6 @@ export class CompaniesComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy() {
-    this.destroy$.unsubscribe();
+    this._destroy$.unsubscribe();
   }
 }
