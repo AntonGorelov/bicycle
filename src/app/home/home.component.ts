@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { SubscriptionLike } from 'rxjs';
 
 import { INews } from '../../lib/models/news.interface';
 import { HomeService } from './home.service';
-import { SubscriptionLike } from 'rxjs';
-import {SliderService} from '../slider/slider.service';
+import { SliderService } from '../slider/slider.service';
 
 @Component({
   templateUrl: './home.component.html',

@@ -4,6 +4,10 @@
       <img class="slide slide-animation nonDraggableImage"
            *ngIf="isCurrentSlideIndex(i)"
            [src]="slide.image">
+      <h3 class="slider-description"
+          *ngIf="isCurrentSlideIndex(i)">
+        {{ slide.text }}
+      </h3>
     </ng-template>
   </div>
 
@@ -16,8 +20,9 @@
         <li class="dot" *ngFor="let slide of content; let i = index;">
           <span [ngClass]="{ 'active':isCurrentSlideIndex(i) }"
                 (click)="setCurrentSlideIndex(i);">
-                {{ slide.description }}</span>
+                {{ slide.text }}</span>
         </li>
-      </ul></div>
+      </ul>
+    </div>
   </nav>
 </div>
