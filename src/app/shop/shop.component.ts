@@ -60,7 +60,7 @@ export class ShopComponent implements OnInit, OnDestroy {
   constructor(private _productService: ProductService) { }
 
   public ngOnInit(): void {
-    this.subscription = this._productService.getAllProducts()
+    this.subscription = this._productService.list()
       .subscribe((products) => {
         this.products = products;
     });
