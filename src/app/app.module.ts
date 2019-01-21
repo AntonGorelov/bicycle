@@ -12,11 +12,13 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ShopComponent } from './shop/shop.component';
 import { LoginComponent } from './login/login.component';
-import { ProductComponent } from './product/product.component';
-import { CompanyComponent } from './company/company.component';
+import { ProductsComponent } from './products/products.component';
+import { CompaniesComponent } from './companies/companies.component';
 import { RestorePasswordComponent } from './restore-password/restore-password.component';
 import { HomeComponent } from './home/home.component';
 import { NewsCardComponent } from './news-card/news-card.component';
+import { FeaturedProductComponent } from './featured-product/featured-product.component';
+import { ProductComponent } from './product/product.component';
 
 // Shared components
 import { InputComponent } from './input/input.component';
@@ -37,11 +39,13 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
     HeaderComponent,
     ShopComponent,
     LoginComponent,
-    ProductComponent,
-    CompanyComponent,
+    ProductsComponent,
+    CompaniesComponent,
     RestorePasswordComponent,
     HomeComponent,
     NewsCardComponent,
+    FeaturedProductComponent,
+    ProductComponent,
 
     InputComponent,
     CheckboxComponent,

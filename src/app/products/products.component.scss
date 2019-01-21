@@ -1,0 +1,13 @@
+.products {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  &__name {
+    font-weight: bold;
+  }
+
+  &__description {
+    max-width: 300px;
+  }
+}

@@ -8,7 +8,7 @@ import { ICompany } from '../../lib/models/company.interface';
   providedIn: 'root'
 })
 
-export class CompanyService {
+export class CompaniesService {
   constructor(private _httpClient: HttpClient) { }
 
   public getAllCompanies(): Observable<ICompany[]> {

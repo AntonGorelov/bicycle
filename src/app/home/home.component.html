@@ -5,8 +5,8 @@
     <div class="main-about" *ngFor="let article of news">
 
       <div *ngIf="article.isMain">
-        <h1>{{article.title}}</h1>
-        <p>{{article.description}}</p>
+        <h1>{{ article.title }}</h1>
+        <p>{{ article.description }}</p>
       </div>
 
     </div>
@@ -15,9 +15,11 @@
   <h5 class="home__part">Other news</h5>
 
   <div class="home__other-news">
+
     <ng-container *ngFor="let article of news">
       <app-news-card [news]="article" *ngIf="!article.isMain"></app-news-card>
     </ng-container>
+
   </div>
 
 

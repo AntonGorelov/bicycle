@@ -1,5 +1,14 @@
-<div class="product">
-  <img src="assets/pictures/bicycle.jpeg">
-  <div class="product__name">{{ product.name }}</div>
-  <div class="product__description">{{ product.description }}</div>
+<div class="product product__md" *ngIf="product">
+
+  <div class="product__image">
+    <img src="{{ product.image }}">
+  </div>
+
+  <div class="product__about">
+    <h3 class="product__name">{{ product.name }}</h3>
+
+    <p class="product__description">{{ product.description }}</p>
+  </div>
+
+
 </div>

@@ -2,19 +2,18 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { SubscriptionLike } from 'rxjs';
 
 import { ICompany } from '../../lib/models/company.interface';
-import { CompanyService } from './company.service';
+import { CompaniesService } from './companies.service';
 
 @Component({
-  selector: 'app-component',
-  templateUrl: 'company.component.html',
-  styleUrls: ['company.component.scss'],
+  templateUrl: 'companies.component.html',
+  styleUrls: ['companies.component.scss'],
 })
-export class CompanyComponent implements OnInit, OnDestroy {
+export class CompaniesComponent implements OnInit, OnDestroy {
   public companies: ICompany[];
 
   public destroy$: SubscriptionLike;
 
-  constructor(private _companyService: CompanyService) {}
+  constructor(private _companyService: CompaniesService) {}
 
   public ngOnInit() {
     this.destroy$ = this._companyService.getAllCompanies().subscribe(

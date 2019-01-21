@@ -3,11 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { ShopComponent } from './shop/shop.component';
 import { LoginComponent } from './login/login.component';
-import { CompanyComponent } from './company/company.component';
+import { CompaniesComponent } from './companies/companies.component';
 import { RestorePasswordComponent } from './restore-password/restore-password.component';
+import { HomeComponent } from './home/home.component';
+import { ProductComponent } from './product/product.component';
 
 import { AuthGuardService } from './guards/auth-guard.service';
-import {HomeComponent} from './home/home.component';
 
 const routes: Routes = [
   {
@@ -21,8 +22,13 @@ const routes: Routes = [
     canActivate: [AuthGuardService]
   },
   {
+    path: 'shop/:id',
+    component: ProductComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
     path: 'companies',
-    component: CompanyComponent,
+    component: CompaniesComponent,
   },
   {
     path: 'login',

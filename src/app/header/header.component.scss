@@ -12,6 +12,8 @@
   &__logo {
     max-width: 80px;
     max-height: 80px;
+    cursor: pointer;
+    outline: none;
   }
 
   &__nav-list {
@@ -31,5 +33,11 @@
     color: $grapefruit;
     border-color: $grapefruit;
     border-radius: 5px;
+    outline: none;
+    margin-right: 5px;
+  }
+
+  &__nav__link:hover {
+    transform: translateY(1px);
   }
 }

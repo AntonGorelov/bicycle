@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { IProduct } from '../lib/models/product.interface';
+import { ID } from '../lib/models/entity.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,11 @@ import { IProduct } from '../lib/models/product.interface';
 export class ProductService {
   constructor(private _httpClient: HttpClient) { }
 
-  public getAllProducts(): Observable<IProduct[]> {
+  public list(): Observable<IProduct[]> {
     return this._httpClient.get<IProduct[]>('/api/bicycles');
+  }
+
+  public show(id: ID): Observable<IProduct> {
+    return this._httpClient.get<IProduct>(`/api/bicycles/${id}`);
   }
 }
