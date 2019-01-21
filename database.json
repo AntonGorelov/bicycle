@@ -87,5 +87,22 @@
       "description": "text 3",
       "isMain": false
     }
+  ],
+  "slider": [
+    {
+      "image": "https://picsum.photos/900/500?image=1",
+      "alt": "alt of text",
+      "text": "Gallery 1"
+    },
+    {
+      "image": "https://picsum.photos/900/500?image=2",
+      "alt": "alt of text",
+      "text": "Gallery 2"
+    },
+    {
+      "image": "https://picsum.photos/900/500?image=3",
+      "alt": "alt of text",
+      "text": "Gallery 3"
+    }
   ]
 }
