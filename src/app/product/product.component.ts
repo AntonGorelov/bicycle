@@ -1,9 +1,10 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import { IProduct } from '../../lib/models/product.interface';
-import {ProductService} from '../product.service';
-import {ID} from '../../lib/models/entity.interface';
-import {Subscription, SubscriptionLike} from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { SubscriptionLike } from 'rxjs';
+
+import { IProduct } from '../../lib/models/product.interface';
+import { ProductService } from '../product.service';
+import { ID } from '../../lib/models/entity.interface';
 
 @Component({
   selector: 'app-product',

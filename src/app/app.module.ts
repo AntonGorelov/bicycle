@@ -19,6 +19,7 @@ import { HomeComponent } from './home/home.component';
 import { NewsCardComponent } from './news-card/news-card.component';
 import { FeaturedProductComponent } from './featured-product/featured-product.component';
 import { ProductComponent } from './product/product.component';
+import { SliderComponent } from './slider/slider.component';
 
 // Shared components
 import { InputComponent } from './input/input.component';
@@ -46,6 +47,7 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
     NewsCardComponent,
     FeaturedProductComponent,
     ProductComponent,
+    SliderComponent,
 
     InputComponent,
     CheckboxComponent,
