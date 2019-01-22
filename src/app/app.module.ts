@@ -22,8 +22,7 @@ import { ProductComponent } from './product/product.component';
 import { SliderComponent } from './slider/slider.component';
 
 // Shared components
-import { InputComponent } from './input/input.component';
-import { CheckboxComponent } from './checkbox/checkbox.component';
+import { SharedComponentsModule } from './shared-components/shared-components.module';
 
 // Services
 import { AuthGuardService } from './guards/auth-guard.service';
@@ -48,9 +47,6 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
     FeaturedProductComponent,
     ProductComponent,
     SliderComponent,
-
-    InputComponent,
-    CheckboxComponent,
   ],
 
   imports: [
@@ -60,6 +56,7 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    SharedComponentsModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: () => {

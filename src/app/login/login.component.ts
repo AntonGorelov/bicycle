@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { InputTypes, InputErrorMessages } from '../input/input.model';
+import { InputTypes, InputErrorMessages } from '../shared-components/input/input.model';
 import { JwtService } from '../jwt.service';
 
 @Component({
