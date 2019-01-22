@@ -21,8 +21,9 @@ import { FeaturedProductComponent } from './featured-product/featured-product.co
 import { ProductComponent } from './product/product.component';
 import { SliderComponent } from './slider/slider.component';
 
-// Shared components
+// Modules
 import { SharedComponentsModule } from './shared-components/shared-components.module';
+import { D3Module } from './d3';
 
 // Services
 import { AuthGuardService } from './guards/auth-guard.service';
@@ -57,6 +58,7 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
     ReactiveFormsModule,
     HttpClientModule,
     SharedComponentsModule,
+    D3Module,
     JwtModule.forRoot({
       config: {
         tokenGetter: () => {
