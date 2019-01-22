@@ -19,10 +19,10 @@ import { HomeComponent } from './home/home.component';
 import { NewsCardComponent } from './news-card/news-card.component';
 import { FeaturedProductComponent } from './featured-product/featured-product.component';
 import { ProductComponent } from './product/product.component';
+import { SliderComponent } from './slider/slider.component';
 
 // Shared components
-import { InputComponent } from './input/input.component';
-import { CheckboxComponent } from './checkbox/checkbox.component';
+import { SharedComponentsModule } from './shared-components/shared-components.module';
 
 // Services
 import { AuthGuardService } from './guards/auth-guard.service';
@@ -46,9 +46,7 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
     NewsCardComponent,
     FeaturedProductComponent,
     ProductComponent,
-
-    InputComponent,
-    CheckboxComponent,
+    SliderComponent,
   ],
 
   imports: [
@@ -58,6 +56,7 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    SharedComponentsModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: () => {
@@ -74,6 +73,7 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [SliderComponent]
 })
 export class AppModule { }

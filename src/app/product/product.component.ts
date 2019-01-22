@@ -1,9 +1,10 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import { IProduct } from '../../lib/models/product.interface';
-import {ProductService} from '../product.service';
-import {ID} from '../../lib/models/entity.interface';
-import {Subscription, SubscriptionLike} from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { SubscriptionLike } from 'rxjs';
+
+import { IProduct } from '../../lib/models/product.interface';
+import { ProductService } from '../product.service';
+import { ID } from '../../lib/models/entity.interface';
 
 @Component({
   selector: 'app-product',
@@ -13,7 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductComponent implements OnInit, OnDestroy {
   public product: IProduct;
 
-  public $destroy: SubscriptionLike;
+  public _destroy$: SubscriptionLike;
 
   constructor(
     private _productService: ProductService,
@@ -25,11 +26,11 @@ export class ProductComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy() {
-    this.$destroy.unsubscribe();
+    this._destroy$.unsubscribe();
   }
 
   public showProduct(id: ID) {
-    this.$destroy = this._productService.show(id).subscribe(
+    this._destroy$ = this._productService.show(id).subscribe(
       (product) => {
         this.product = product;
       }

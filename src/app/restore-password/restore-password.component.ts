@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { InputErrorMessages, InputTypes } from '../input/input.model';
+import { InputErrorMessages, InputTypes } from '../shared-components/input/input.model';
 
 @Component({
   templateUrl: './restore-password.component.html',

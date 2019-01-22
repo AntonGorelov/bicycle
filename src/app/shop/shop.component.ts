@@ -55,20 +55,21 @@ export class ShopComponent implements OnInit, OnDestroy {
   public animationState = 'initial' ;
 
   public products: IProduct[];
-  public subscription: SubscriptionLike;
+
+  private _subscription$: SubscriptionLike;
 
   constructor(private _productService: ProductService) { }
 
   public ngOnInit(): void {
-    this.subscription = this._productService.list()
+    this._subscription$ = this._productService.list()
       .subscribe((products) => {
         this.products = products;
     });
   }
 
   public ngOnDestroy(): void {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
+    if (this._subscription$) {
+      this._subscription$.unsubscribe();
     }
   }
 
