@@ -5,6 +5,8 @@
 
     <button class="header__nav__link" [routerLink]="['/companies']">Companies</button>
 
+    <button class="header__nav__link" [routerLink]="['/d3']">D3 (test)</button>
+
     <button class="header__nav__link" *ngIf="!loggedIn" [routerLink]="['/login']">Login</button>
 
     <button class="header__nav__link" *ngIf="loggedIn" (click)="logout()">Logout</button>

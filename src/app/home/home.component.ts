@@ -13,33 +13,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   public news: INews[];
   public content = [];
 
-  public logs = [
-    {
-      CreationDateTime: '309',
-      Type: 'itemType1'
-    },
-    {
-      CreationDateTime: '290',
-      Type: 'itemType2'
-    },
-    {
-      CreationDateTime: '390',
-      Type: 'itemType3'
-    },
-    {
-      CreationDateTime: '720',
-      Type: 'itemType4'
-    },
-    {
-      CreationDateTime: '721',
-      Type: 'itemType1'
-    },
-    {
-      CreationDateTime: '900',
-      Type: 'itemType2'
-    }
-  ];
-
   private _destroy$: SubscriptionLike;
   private _destroySlider$: SubscriptionLike;
 
