@@ -16,11 +16,11 @@ export class CompaniesComponent implements OnInit, OnDestroy {
   constructor(private _companyService: CompaniesService) {}
 
   public ngOnInit() {
-    this._destroy$ = this._companyService.getAllCompanies().subscribe(
-      (companies) => {
+    this._destroy$ = this._companyService
+      .getAllCompanies()
+      .subscribe(companies => {
         this.companies = companies;
-      }
-    );
+      });
   }
 
   public ngOnDestroy() {

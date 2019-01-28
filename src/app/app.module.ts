@@ -22,7 +22,7 @@ import { ProductComponent } from './product/product.component';
 import { SliderComponent } from './slider/slider.component';
 
 // Modules
-import { SharedComponentsModule } from './shared-components/shared-components.module';
+import { SharedComponentsModule } from './shared-components';
 import { D3Module } from './d3';
 
 // Services
@@ -64,9 +64,9 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
         tokenGetter: () => {
           return localStorage.getItem('currentUser');
         },
-        whitelistedDomains: []
-      }
-    })
+        whitelistedDomains: [],
+      },
+    }),
   ],
   providers: [
     AuthGuardService,
@@ -76,6 +76,6 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
-  entryComponents: [SliderComponent]
+  entryComponents: [SliderComponent],
 })
-export class AppModule { }
+export class AppModule {}

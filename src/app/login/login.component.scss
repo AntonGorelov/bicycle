@@ -1,4 +1,4 @@
-@import "~src/assets/styles/variables";
+@import '~src/assets/styles/variables';
 
 .login {
   max-width: 700px;
@@ -37,7 +37,7 @@
     display: flex;
     align-items: center;
 
-    button{
+    button {
       font-family: 'Nunito', sans-serif;
       font-weight: 800;
       font-size: 13px;
@@ -64,12 +64,9 @@
     }
 
     .btn {
-
       &.m-disabled {
         cursor: not-allowed;
       }
     }
-
   }
-
 }

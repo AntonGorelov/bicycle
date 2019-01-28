@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { InputTypes, InputErrorMessages } from '../shared-components/input/input.model';
+import {
+  InputTypes,
+  InputErrorMessages,
+} from '../shared-components/input/input.model';
 import { JwtService } from '../jwt.service';
 
 @Component({
@@ -46,12 +49,15 @@ export class LoginComponent implements OnInit {
     private _jwtService: JwtService,
     private _router: Router,
     private _route: ActivatedRoute,
-    ) {}
+  ) {}
 
   public ngOnInit() {
     this.signInForm = new FormGroup({
       email: new FormControl('', [Validators.email, Validators.required]),
-      password: new FormControl('', [Validators.required, Validators.minLength(8)]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(8),
+      ]),
       rememberMe: new FormControl(false),
     });
   }
@@ -64,11 +70,11 @@ export class LoginComponent implements OnInit {
     const { email, password } = this.signInForm.value;
     this._jwtService.login(email, password).subscribe(
       () => {
-      this._router.navigate(['/shop']);
-    },
-      (error) => {
-      console.log(error);
-      });
-
+        this._router.navigate(['/shop']);
+      },
+      error => {
+        console.log(error);
+      },
+    );
   }
 }

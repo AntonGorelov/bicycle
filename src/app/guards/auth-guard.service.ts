@@ -1,22 +1,24 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, Route } from '@angular/router';
+import {
+  CanActivate,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot,
+  Router,
+  Route,
+} from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { JwtService } from '../jwt.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthGuardService implements CanActivate {
-
-  constructor(
-    private _jwtService: JwtService,
-    private _router: Router
-  ) { }
+  constructor(private _jwtService: JwtService, private _router: Router) {}
 
   public canActivate(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
+    state: RouterStateSnapshot,
   ): Observable<boolean> | Promise<boolean> | boolean {
     if (localStorage.getItem('currentUser')) {
       return true;

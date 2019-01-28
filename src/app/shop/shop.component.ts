@@ -1,5 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { animate, state, style, transition, trigger } from '@angular/animations';
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 import { SubscriptionLike } from 'rxjs';
 import { IProduct } from '../../lib/models/product.interface';
 import { ProductService } from '../product.service';
@@ -14,56 +20,56 @@ import { ProductService } from '../product.service';
   //   '(@productTrigger.done)': 'animate($event)',
   // },
   animations: [
-    trigger('changeColorTrigger',
-      [
-        state('initial', style({
+    trigger('changeColorTrigger', [
+      state(
+        'initial',
+        style({
           backgroundColor: 'white',
-        })),
-        state('final', style({
+        }),
+      ),
+      state(
+        'final',
+        style({
           backgroundColor: 'green',
-        })),
-        transition('initial => final', [
-          animate('1s')
-        ]),
-        transition('final => initial', [
-          animate('0.5s')
-        ])
-      ]),
-    trigger('fadeOutTrigger',
-      [
-        state('void', style({
-          opacity: 0,
-        })),
-        transition('void <=> *', animate(1500)),
+        }),
+      ),
+      transition('initial => final', [animate('1s')]),
+      transition('final => initial', [animate('0.5s')]),
     ]),
-    trigger('enterLeaveTrigger',
-      [
-        state('flyIn', style({ transform: 'translateX(0)' })),
-        transition(':enter', [
-          style({ transform: 'translateX(-100%)' }),
-          animate('0.5s 300ms ease-in')
-        ]),
-        transition(':leave', [
-          animate('0.3s ease-out',
-            style({ transform: 'translateX(100%)'}))
-      ])
-    ])
-  ]
+    trigger('fadeOutTrigger', [
+      state(
+        'void',
+        style({
+          opacity: 0,
+        }),
+      ),
+      transition('void <=> *', animate(1500)),
+    ]),
+    trigger('enterLeaveTrigger', [
+      state('flyIn', style({ transform: 'translateX(0)' })),
+      transition(':enter', [
+        style({ transform: 'translateX(-100%)' }),
+        animate('0.5s 300ms ease-in'),
+      ]),
+      transition(':leave', [
+        animate('0.3s ease-out', style({ transform: 'translateX(100%)' })),
+      ]),
+    ]),
+  ],
 })
 export class ShopComponent implements OnInit, OnDestroy {
   // @HostBinding('@productTrigger')
-  public animationState = 'initial' ;
+  public animationState = 'initial';
 
   public products: IProduct[];
 
   private _subscription$: SubscriptionLike;
 
-  constructor(private _productService: ProductService) { }
+  constructor(private _productService: ProductService) {}
 
   public ngOnInit(): void {
-    this._subscription$ = this._productService.list()
-      .subscribe((products) => {
-        this.products = products;
+    this._subscription$ = this._productService.list().subscribe(products => {
+      this.products = products;
     });
   }
 
@@ -74,7 +80,7 @@ export class ShopComponent implements OnInit, OnDestroy {
   }
 
   public changeState() {
-    this.animationState = this.animationState === 'initial' ? 'final' : 'initial';
+    this.animationState =
+      this.animationState === 'initial' ? 'final' : 'initial';
   }
-
 }

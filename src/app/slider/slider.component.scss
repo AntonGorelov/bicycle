@@ -72,14 +72,14 @@
   height: 48px;
 }
 
-.nonDraggableImage{
+.nonDraggableImage {
   -webkit-user-drag: none;
 }
 
 .nav .wrapper {
   margin: 0 auto;
   width: 100%;
-  padding: 1em 0 .8em;
+  padding: 1em 0 0.8em;
 }
 
 .nav ul {
@@ -88,7 +88,8 @@
   width: 100%;
 }
 
-.nav .dot, .nav .dot span {
+.nav .dot,
+.nav .dot span {
   display: inline-block;
   zoom: 1;
   cursor: pointer;
@@ -110,7 +111,7 @@
   text-indent: 100%;
   white-space: nowrap;
   overflow: hidden;
-  background: #FFF;
+  background: #fff;
   border: 1px solid transparent;
   outline: none;
   -webkit-box-shadow: none;
@@ -125,6 +126,6 @@
 }
 
 .dots .dot span.active {
-  border-color: #FFF;
+  border-color: #fff;
   background-color: transparent;
 }

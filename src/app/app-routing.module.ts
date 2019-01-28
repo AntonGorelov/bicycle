@@ -9,7 +9,8 @@ import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
 
 import { AuthGuardService } from './guards/auth-guard.service';
-import {D3View} from './d3/views/d3.view';
+
+import { D3View } from './d3/views/d3.view';
 
 const routes: Routes = [
   {
@@ -20,12 +21,12 @@ const routes: Routes = [
   {
     path: 'shop',
     component: ShopComponent,
-    canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService],
   },
   {
     path: 'shop/:id',
     component: ProductComponent,
-    canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService],
   },
   {
     path: 'companies',
@@ -46,13 +47,11 @@ const routes: Routes = [
   {
     path: 'd3',
     component: D3View,
-  }
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {
-
-}
+export class AppRoutingModule {}

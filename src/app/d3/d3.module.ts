@@ -6,18 +6,8 @@ import { TimelineComponent } from './components/timeline/timeline.component';
 import { D3View } from './views/d3.view';
 
 @NgModule({
-  imports: [
-    CommonModule,
-  ],
-  exports: [
-    GraphComponent,
-    TimelineComponent,
-    D3View
-  ],
-  declarations: [
-    GraphComponent,
-    TimelineComponent,
-    D3View
-  ]
+  imports: [CommonModule],
+  exports: [GraphComponent, TimelineComponent, D3View],
+  declarations: [GraphComponent, TimelineComponent, D3View],
 })
-export class D3Module { }
+export class D3Module {}

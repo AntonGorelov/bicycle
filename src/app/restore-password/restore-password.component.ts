@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { InputErrorMessages, InputTypes } from '../shared-components/input/input.model';
+import {
+  InputErrorMessages,
+  InputTypes,
+} from '../shared-components/input/input.model';
 
 @Component({
   templateUrl: './restore-password.component.html',
@@ -15,7 +18,7 @@ export class RestorePasswordComponent implements OnInit {
 
   public ngOnInit() {
     this.restoreForm = new FormGroup({
-      email: new FormControl('', [Validators.email, Validators.required])
+      email: new FormControl('', [Validators.email, Validators.required]),
     });
   }
 

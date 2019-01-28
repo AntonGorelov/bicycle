@@ -6,11 +6,10 @@ import { IProduct } from '../lib/models/product.interface';
 import { ID } from '../lib/models/entity.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class ProductService {
-  constructor(private _httpClient: HttpClient) { }
+  constructor(private _httpClient: HttpClient) {}
 
   public list(): Observable<IProduct[]> {
     return this._httpClient.get<IProduct[]>('/api/bicycles');

@@ -1,4 +1,4 @@
-@import "~src/assets/styles/variables";
+@import '~src/assets/styles/variables';
 
 .checkbox__check-mark {
   position: absolute;
@@ -23,7 +23,6 @@
 }
 
 .checkbox__label {
-
   &.checkbox__label_error {
     color: red;
   }

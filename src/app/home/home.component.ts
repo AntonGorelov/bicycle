@@ -18,18 +18,18 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   constructor(
     private _homeService: HomeService,
-    private _sliderService: SliderService
+    private _sliderService: SliderService,
   ) {}
 
   public ngOnInit() {
-    this._destroy$ = this._homeService.getAllNews().subscribe((news) => {
+    this._destroy$ = this._homeService.getAllNews().subscribe(news => {
       this.news = news;
     });
-    this._destroySlider$ = this._sliderService.getSliderContent().subscribe(
-      (content) => {
+    this._destroySlider$ = this._sliderService
+      .getSliderContent()
+      .subscribe(content => {
         this.content = content;
-      }
-    );
+      });
   }
 
   public ngOnDestroy() {

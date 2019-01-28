@@ -6,17 +6,8 @@ import { CheckboxComponent } from './checkbox/checkbox.component';
 import { InputComponent } from './input/input.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-  ],
-  exports: [
-    CheckboxComponent,
-    InputComponent,
-  ],
-  declarations: [
-    CheckboxComponent,
-    InputComponent,
-  ]
+  imports: [CommonModule, FormsModule],
+  exports: [CheckboxComponent, InputComponent],
+  declarations: [CheckboxComponent, InputComponent],
 })
-export class SharedComponentsModule { }
+export class SharedComponentsModule {}

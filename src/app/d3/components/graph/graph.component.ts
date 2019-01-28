@@ -4,10 +4,9 @@ import * as d3 from 'd3';
 @Component({
   selector: 'app-graph',
   templateUrl: 'graph.component.html',
-  styleUrls: ['graph.component.scss']
+  styleUrls: ['graph.component.scss'],
 })
 export class GraphComponent implements OnInit {
-
   // public ticker: EventEmitter<d3.Simulation<Node, Link>> = new EventEmitter();
   public simulation: d3.Simulation<any, any>;
 
@@ -24,13 +23,16 @@ export class GraphComponent implements OnInit {
   }
 
   public ngOnInit() {
-
-    this.simulation = d3.forceSimulation(this.nodes)
+    this.simulation = d3
+      .forceSimulation(this.nodes)
       .force('charge', d3.forceManyBody().strength(3))
       .force('center', d3.forceCenter(this.width / 2, this.height / 2))
-      .force('collision', d3.forceCollide().radius(() => {
-        return 18;
-      }));
+      .force(
+        'collision',
+        d3.forceCollide().radius(() => {
+          return 18;
+        }),
+      );
 
     // this.initBubbles();
     this.initSimulation();
@@ -50,23 +52,18 @@ export class GraphComponent implements OnInit {
     if (!this.simulation) {
       throw new Error('Simulation was not initialized');
     }
-    this.simulation.force('links',
-      d3.forceLink(this.links)
-        .strength(1 / 45)
-    );
+    this.simulation.force('links', d3.forceLink(this.links).strength(1 / 45));
   }
 
   public initSimulation() {
     if (!this.simulation) {
       // const ticker = this.ticker;
 
-      this.simulation = d3.forceSimulation()
-        .force('charge',
-          d3.forceManyBody()
-            .strength(-2)
-        );
+      this.simulation = d3
+        .forceSimulation()
+        .force('charge', d3.forceManyBody().strength(-2));
 
-      this.simulation.on('tick', function () {
+      this.simulation.on('tick', function() {
         // ticker.emit(this);
       });
 
@@ -78,7 +75,7 @@ export class GraphComponent implements OnInit {
   // <!-- Circles with random color -->
 
   public randomizeValue() {
-    const value = (x) => {
+    const value = x => {
       return Math.floor(Math.random() * x);
     };
 
@@ -87,7 +84,7 @@ export class GraphComponent implements OnInit {
         x: value(this.width) + 70,
         y: value(this.height) + 70,
         r: value(1) + 20,
-        fill: d3.rgb(value(255), value(255), value(255))
+        fill: d3.rgb(value(255), value(255), value(255)),
       });
     }
   }
@@ -95,7 +92,8 @@ export class GraphComponent implements OnInit {
   public updateValue() {
     this.randomizeValue();
 
-    const u = d3.select('svg')
+    const u = d3
+      .select('svg')
       .selectAll<SVGCircleElement, any>('circle')
       .data(this.nodes);
 
@@ -109,10 +107,18 @@ export class GraphComponent implements OnInit {
       // .merge(u)
       .transition()
       .duration(1500)
-      .attr('cx', function(d) {return d.x; })
-      .attr('cy', function(d) {return d.y; })
-      .attr('r', function(d) {return d.r; })
-      .style('fill', function(d) {return d.fill; });
+      .attr('cx', function(d) {
+        return d.x;
+      })
+      .attr('cy', function(d) {
+        return d.y;
+      })
+      .attr('r', function(d) {
+        return d.r;
+      })
+      .style('fill', function(d) {
+        return d.fill;
+      });
 
     // Exit
     u.exit()
@@ -124,34 +130,33 @@ export class GraphComponent implements OnInit {
   }
 
   public initForce() {
-    this.simulation
-      .on('tick', () => {
-        const u = d3
-          .select('svg')
-          .selectAll<SVGCircleElement, any>('circle')
-          .attr('fill', '#714cf9')
-          .data(this.nodes);
+    this.simulation.on('tick', () => {
+      const u = d3
+        .select('svg')
+        .selectAll<SVGCircleElement, any>('circle')
+        .attr('fill', '#714cf9')
+        .data(this.nodes);
 
-        u.enter()
-          .append('circle')
-          .attr('r', function (d) {
-            return d.radius;
-          })
-          .merge(u)
-          .attr('cx', function(d) {
-            return d.x;
-          })
-          .attr('cy', function(d) {
-            return d.y;
-          });
-      });
+      u.enter()
+        .append('circle')
+        .attr('r', function(d) {
+          return d.radius;
+        })
+        .merge(u)
+        .attr('cx', function(d) {
+          return d.x;
+        })
+        .attr('cy', function(d) {
+          return d.y;
+        });
+    });
   }
 
   public initCol() {
     this.simulation
       .force('charge', d3.forceManyBody().strength(5))
       .force('center', d3.forceCenter(this.width / 2, this.height / 2))
-      .force('collision', d3.forceCollide().radius( () => Math.random() * 25 ));
+      .force('collision', d3.forceCollide().radius(() => Math.random() * 25));
   }
 
   public initBubbles() {
@@ -168,23 +173,24 @@ export class GraphComponent implements OnInit {
       .attr('y', 100);
 
     const events = [];
-    svg.on('click', function () {
+    svg.on('click', function() {
       events.push(d3.event);
       if (events.length > 100) {
         events.shift();
       }
-      const circles = svg.selectAll('circle')
-        .data(events, function (e) { return e.timeStamp; })
+      const circles = svg
+        .selectAll('circle')
+        .data(events, function(e) {
+          return e.timeStamp;
+        })
         .attr('fill', 'gray');
       circles
         .enter()
         .append('circle')
-        .attr('cx', function (d) {
-
+        .attr('cx', function(d) {
           return d.x || d.offsetX;
         })
-        .attr('cy', function (d) {
-
+        .attr('cy', function(d) {
           return d.y || d.offsetY;
         })
         .attr('fill', 'red')

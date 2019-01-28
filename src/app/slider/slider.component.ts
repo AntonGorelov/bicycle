@@ -1,6 +1,13 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { animate, group, query, style, transition, trigger } from '@angular/animations';
-import { timer } from 'rxjs';
+import {
+  animate,
+  group,
+  query,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
+import { SubscriptionLike, timer } from 'rxjs';
 
 @Component({
   selector: 'app-slider',
@@ -8,41 +15,53 @@ import { timer } from 'rxjs';
   styleUrls: ['slider.component.scss'],
   animations: [
     trigger('slideAnimation', [
-      transition(':increment', group([
-        query(':enter', [
-          style({
-            transform: 'translateX(100%)'
-          }),
-          animate('0.5s ease-out', style('*'))
+      transition(
+        ':increment',
+        group([
+          query(':enter', [
+            style({
+              transform: 'translateX(100%)',
+            }),
+            animate('0.5s ease-out', style('*')),
+          ]),
+          query(':leave', [
+            animate(
+              '0.5s ease-out',
+              style({
+                transform: 'translateX(-100%)',
+              }),
+            ),
+          ]),
         ]),
-        query(':leave', [
-          animate('0.5s ease-out', style({
-            transform: 'translateX(-100%)'
-          }))
-        ])
-      ])),
-      transition(':decrement', group([
-        query(':enter', [
-          style({
-            transform: 'translateX(-100%)'
-          }),
-          animate('0.5s ease-out', style('*'))
+      ),
+      transition(
+        ':decrement',
+        group([
+          query(':enter', [
+            style({
+              transform: 'translateX(-100%)',
+            }),
+            animate('0.5s ease-out', style('*')),
+          ]),
+          query(':leave', [
+            animate(
+              '0.5s ease-out',
+              style({
+                transform: 'translateX(100%)',
+              }),
+            ),
+          ]),
         ]),
-        query(':leave', [
-          animate('0.5s ease-out', style({
-            transform: 'translateX(100%)'
-          }))
-        ])
-      ]))
-    ])
-  ]
+      ),
+    ]),
+  ],
 })
 export class SliderComponent implements OnInit, OnDestroy {
   @Input()
   public content;
 
   public selectedIndex: number;
-  private _destroy$;
+  private _destroy$: SubscriptionLike;
 
   constructor() {}
 
@@ -60,8 +79,7 @@ export class SliderComponent implements OnInit, OnDestroy {
   }
 
   public autoSelect() {
-    this._destroy$ = timer(1000, 3000);
-    this._destroy$.subscribe(() => {
+    this._destroy$ = timer(1000, 3000).subscribe(() => {
       this.nextSlide();
     });
   }
@@ -74,10 +92,12 @@ export class SliderComponent implements OnInit, OnDestroy {
   }
 
   public prevSlide() {
-    this.selectedIndex = (this.selectedIndex > 0) ? --this.selectedIndex : this.content.length - 1;
+    this.selectedIndex =
+      this.selectedIndex > 0 ? --this.selectedIndex : this.content.length - 1;
   }
 
   public nextSlide() {
-    this.selectedIndex = (this.selectedIndex < this.content.length - 1) ? ++this.selectedIndex : 0;
+    this.selectedIndex =
+      this.selectedIndex < this.content.length - 1 ? ++this.selectedIndex : 0;
   }
 }

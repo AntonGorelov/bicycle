@@ -18,7 +18,7 @@ export class ProductComponent implements OnInit, OnDestroy {
 
   constructor(
     private _productService: ProductService,
-    private _route: ActivatedRoute
+    private _route: ActivatedRoute,
   ) {}
 
   public ngOnInit() {
@@ -30,10 +30,8 @@ export class ProductComponent implements OnInit, OnDestroy {
   }
 
   public showProduct(id: ID) {
-    this._destroy$ = this._productService.show(id).subscribe(
-      (product) => {
-        this.product = product;
-      }
-    );
+    this._destroy$ = this._productService.show(id).subscribe(product => {
+      this.product = product;
+    });
   }
 }
