@@ -1,0 +1,22 @@
+.motion {
+  position: relative;
+  margin: 0 160px;
+
+  &__historical-canvas {
+    width: 960px;
+    height: 500px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+  }
+
+  &__realtime-canvas {
+    width: 960px;
+    height: 500px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+  }
+}
