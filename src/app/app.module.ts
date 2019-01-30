@@ -28,6 +28,7 @@ import { D3Module } from './d3';
 // Services
 import { AuthGuardService } from './guards/auth-guard.service';
 import { StoreService } from './services/store.service';
+import { ProductResolverService } from './product/product-resolver.service';
 
 // Interceptors
 import { FakeBackendInterceptor } from './helpers/backend';
@@ -72,6 +73,7 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
     AuthGuardService,
     StoreService,
     FakeBackendInterceptor,
+    ProductResolverService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],

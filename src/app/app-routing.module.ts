@@ -11,6 +11,7 @@ import { ProductComponent } from './product/product.component';
 import { AuthGuardService } from './guards/auth-guard.service';
 
 import { D3View } from './d3/views/d3.view';
+import { ProductResolverService } from './product/product-resolver.service';
 
 const routes: Routes = [
   {
@@ -26,6 +27,7 @@ const routes: Routes = [
   {
     path: 'shop/:id',
     component: ProductComponent,
+    resolve: { product: ProductResolverService },
     canActivate: [AuthGuardService],
   },
   {

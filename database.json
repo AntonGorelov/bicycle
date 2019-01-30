@@ -30,43 +30,49 @@
       "id": "domane",
       "image": "assets/pictures/bicycle.jpeg",
       "name": "Domane SLR 9 Disc eTap",
+      "price": 120000,
       "description": "Domane SLR 9 Disc eTap pairs our best endurance road bike frame with SRAM's flagship wireless electronic drivetrain."
     },
     {
       "id": "top-fuel",
       "image": "assets/pictures/bicycle.jpeg",
       "name": "Top Fuel 9.9 SL",
+      "price": 125000,
       "description": "Top Fuel 9.9 SL is our fastest full suspension XC mountain bike."
     },
     {
       "id": "madone",
       "image": "assets/pictures/bicycle.jpeg",
       "name": "Madone SLR 8 Disc",
+      "price": 110000,
       "description": "With Madone SLR 8 Disc, you're getting the best in light weight, aerodynamics, and road-smoothing IsoSpeed tech, with carbon wheels and a top-shelf Shimano Dura-Ace mechanical drivetrain."
     },
     {
       "id": "fuel-ex",
       "image": "assets/pictures/bicycle.jpeg",
       "name": "Fuel EX 9.9",
+      "price": 145000,
       "description": "Fuel EX 9.9 is our best 130mm trail bike. A carbon frame, carbon wheels, a 1x12 SRAM X01 Eagle drivetrain"
     },
     {
       "id": "slash",
       "image": "assets/pictures/bicycle.jpeg",
       "name": "Slash 9.9",
+      "price": 121000,
       "description": "Slash 9.9 is the fastest enduro mountain bike in the lineup, so it's no surprise it's the go-to ride for the pros of Trek Factory Racing Enduro."
     },
     {
       "id": "remedy",
       "image": "assets/pictures/bicycle.jpeg",
       "name": "Remedy 9.9",
+      "price": 118000,
       "description": "Remedy 9.9 is the top-end trail bike in the family. A full OCLV Mountain Carbon frame, FOX Factory fork"
     }
   ],
   "news": [
     {
       "title": "We are open news!",
-      "description": "This post is a step-by-step guide for both designing and implementing JWT-based Authentication in an Angular Application.",
+      "description": "This post is a step-by-step guide for both designing and implementing JWT-based Authentication in an Angular Application. Add: resolvers, websockets, inf scroll",
       "isMain": true
     },
     {
