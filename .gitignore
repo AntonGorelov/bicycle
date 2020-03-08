@@ -24,6 +24,7 @@ frontend.iml
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+*.lock.json
 
 # misc
 /.sass-cache
