@@ -1,6 +1,9 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { animate, group, query, style, transition, trigger } from '@angular/animations';
-import { timer } from 'rxjs';
+
+import { Subject, timer } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-slider',
@@ -42,7 +45,8 @@ export class SliderComponent implements OnInit, OnDestroy {
   public content;
 
   public selectedIndex: number;
-  private _destroy$;
+  private _selected$;
+  private _destroyed$ = new Subject<void>();
 
   constructor() {}
 
@@ -52,7 +56,8 @@ export class SliderComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy() {
-    this._destroy$.unsubscribe();
+    this._destroyed$.next();
+    this._destroyed$.complete();
   }
 
   public initSlider() {
@@ -60,9 +65,11 @@ export class SliderComponent implements OnInit, OnDestroy {
   }
 
   public autoSelect() {
-    this._destroy$ = timer(1000, 3000);
-    this._destroy$.subscribe(() => {
-      this.nextSlide();
+    this._selected$ = timer(1000, 3000);
+    this._selected$
+        .pipe(takeUntil(this._destroyed$))
+        .subscribe(() => {
+          this.nextSlide();
     });
   }
 
